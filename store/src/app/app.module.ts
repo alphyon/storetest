@@ -4,7 +4,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {HttpModule} from '@angular/http';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { FormsModule }   from '@angular/forms';
 
 //Components
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import {CommonModule} from "@angular/common";
 import { CartComponent } from './controller/cart/cart.component';
 import {CartService} from "./service/service/cart.service";
 import { DeleteCartComponent } from './controller/delete-cart/delete-cart.component';
+import { LoginComponent } from './controller/login/login.component';
+import {LoginService} from "./service/service/login.service";
 @NgModule({
     declarations: [
         AppComponent,
@@ -26,6 +28,7 @@ import { DeleteCartComponent } from './controller/delete-cart/delete-cart.compon
         ProductComponent,
         CartComponent,
         DeleteCartComponent,
+        LoginComponent,
     ],
     imports: [
         CommonModule,
@@ -34,13 +37,15 @@ import { DeleteCartComponent } from './controller/delete-cart/delete-cart.compon
         MDBBootstrapModule.forRoot(),
         APP_ROUTING,
         ToastModule.forRoot(),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FormsModule
     ],
     schemas: [NO_ERRORS_SCHEMA],
     providers: [
         AppConfigService,
         ProductsService,
-        CartService
+        CartService,
+        LoginService
     ],
     bootstrap: [AppComponent]
 })

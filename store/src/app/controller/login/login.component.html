@@ -1,0 +1,28 @@
+<br><br><br>
+<div class="container">
+<div class="sizeform">
+  <!-- Material form login -->
+  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && loginUser()">
+    <p class="h4 text-center mb-4">Sign in</p>
+
+    <!-- Material input email -->
+    <div class="md-form">
+      <i class="fa fa-envelope prefix grey-text"></i>
+      <input type="email" id="materialFormLoginEmailEx" class="form-control" [(ngModel)]="model.username" name="username">
+
+    </div>
+
+    <!-- Material input password -->
+    <div class="md-form">
+      <i class="fa fa-lock prefix grey-text"></i>
+      <input type="password" id="materialFormLoginPasswordEx" class="form-control" [(ngModel)]="model.password" name="password">
+
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-default" type="submit">Login</button>
+    </div>
+  </form>
+  <!-- Material form login -->
+</div>
+</div>

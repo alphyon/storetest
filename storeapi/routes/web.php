@@ -20,7 +20,16 @@ $router->options('/{any:.*}', function () {
         ->header('Access-Control-Allow-Headers', 'Authorization, Content-Type, Origin');
 });
 
-$router->group(['prefix'=>'api/v1'], function() use($router){
+$router->post(
+    'auth/login',
+    [
+        'uses' => 'AuthController@authenticate'
+    ]
+);
+
+
+
+$router->group(['prefix'=>'api/v1','middleware' => 'jwt.auth'], function() use($router){
     $router->post('/user', 'UserController@create');
     $router->put('/user/{id}', 'UserController@update');
     $router->get('/users', 'UserController@index');

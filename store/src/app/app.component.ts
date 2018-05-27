@@ -8,8 +8,20 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class AppComponent {
   title = 'app';
-
+  visual: boolean;
+  fullname: any;
     constructor(private toastr: ToastsManager, vRef: ViewContainerRef) {
         this.toastr.setRootViewContainerRef(vRef);
+
+    }
+
+    loginUser(){
+      if(localStorage.getItem('id')== undefined){
+         this.visual = false;
+
+      }else{
+        this.visual = true;
+        this.fullname = localStorage.getItem('fullname');
+      }
     }
 }

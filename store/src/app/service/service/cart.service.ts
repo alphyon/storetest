@@ -18,28 +18,28 @@ export class CartService {
 
 
     getProducts(hash) {
-        return this.http.get(this.url + '/' + hash)
+        return this.http.get(this.url + '/' + hash+"/?token="+localStorage.getItem('token'))
             .map((res: Response) => res.json());
     }
 
     createProduct(hash, id_producto, quantity, name,price){
-        return this.http.post(this.url ,
+        return this.http.post(this.url+"/?token="+localStorage.getItem('token') ,
             {'hash':hash,'id_product':id_producto, 'quantity':quantity,'name': name,'price':price},
             { headers: this.headers }).map((res: Response) => res.json());
     }
 
     updateProduct(id,quantity){
-        return this.http.put(this.url+id , {'quantity':quantity},
+        return this.http.put(this.url+id+"/?token="+localStorage.getItem('token') , {'quantity':quantity},
             { headers: this.headers }).map((res: Response) => res.json());
     }
 
     deleteProduct(id){
-        return this.http.delete(this.url+"/"+id ,
+        return this.http.delete(this.url+"/"+id+"/?token="+localStorage.getItem('token') ,
         { headers: this.headers }).map((res: Response) => res.json());
     }
 
     pagarProductos(id, reference, total,detalle){
-        return this.http.post(this.url2 ,
+        return this.http.post(this.url2+"/?token="+localStorage.getItem('token') ,
             {'user_id':id,'reference':reference, 'total':total,'details': detalle},
             { headers: this.headers }).map((res: Response) => res.json());
     }

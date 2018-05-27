@@ -19,12 +19,12 @@ export class ProductsService {
 
 
     getAllProducts() {
-        return this.http.get(this.url)
+        return this.http.get(this.url+"/?token="+localStorage.getItem('token'))
             .map((res: Response) => res.json());
     }
 
     getProduct(id) {
-        return this.http.get(this.url2 + '/' + id)
+        return this.http.get(this.url2 + '/' + id+"/?token="+localStorage.getItem('token'))
             .map((res: Response) => res.json());
     }
 
