@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 15,
                 'price' => 400.0,
-                'image' => 'image1.jpg'
+                'image' => 'image1.jpeg'
             ),
             1 => array(
                 'SKU' => 'ABDC1234',
@@ -37,7 +37,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 10,
                 'price' => 325.50,
-                'image' => 'image2.jpg'
+                'image' => 'image2.jpeg'
             ),
             2 => array(
                 'SKU' => 'LLOO9876',
@@ -50,7 +50,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 10,
                 'price' => 250.5,
-                'image' => 'image3.jpg'
+                'image' => 'image3.jpeg'
             ),
             3 => array(
                 'SKU' => 'GGFB87645',
@@ -63,7 +63,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 25,
                 'price' => 9.5,
-                'image' => 'image4.jpg'
+                'image' => 'image4.jpeg'
             ),
             4 => array(
                 'SKU' => 'ZASD8708',
@@ -76,7 +76,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 20,
                 'price' => 19.5,
-                'image' => 'image5.jpg'
+                'image' => 'image5.jpeg'
             ),
             4 => array(
                 'SKU' => 'SSHY5321',
@@ -89,7 +89,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 20,
                 'price' => 45,
-                'image' => 'image6.jpg'
+                'image' => 'image6.jpeg'
             ),
             5 => array(
                 'SKU' => 'TTGS0009',
@@ -102,7 +102,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 120,
                 'price' => 75,
-                'image' => 'image7.jpg'
+                'image' => 'image7.jpeg'
             ),
             6 => array(
                 'SKU' => 'KLMU9823',
@@ -115,7 +115,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 25,
                 'price' => 375,
-                'image' => 'image8.jpg'
+                'image' => 'image8.jpeg'
             ),
             7 => array(
                 'SKU' => 'RPOP9843',
@@ -128,7 +128,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 5,
                 'price' => 105.5,
-                'image' => 'image9.jpg'
+                'image' => 'image9.jpeg'
             ),
             8 => array(
                 'SKU' => 'TRVC1514',
@@ -141,7 +141,7 @@ class ProductsTableSeeder extends Seeder
                 eros, ut malesuada tortor ultrices non. Donec rutrum non urna vitae faucibus. ',
                 'quantity' => 25,
                 'price' => 75.5,
-                'image' => 'image10.jpg'
+                'image' => 'image10.jpeg'
             )));
     }
 }

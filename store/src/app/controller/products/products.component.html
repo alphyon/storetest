@@ -1,7 +1,7 @@
 <br><br><br><br>
 <div class="container">
     <div class="row">
-        <ng-template ngFor let-product [ngForOf]="products">
+        <ng-template ngFor let-product [ngForOf]="products" let i = index>
 
 
             <div class="col-4">
@@ -9,7 +9,7 @@
                 <div class="card">
 
                     <!--Card image-->
-                    <img class="img-fluid" src="https://picsum.photos/200/300/?ramdom" alt="Card image cap">
+                    <img class="img-fluid" src="assets/img/{{product.image}}" alt="Card image cap">
 
                     <!--Card content-->
                     <div class="card-body">
