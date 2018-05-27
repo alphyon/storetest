@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
 
 
         this.cartService.pagarProductos(
-            1,
+            localStorage.getItem('id'),
             localStorage.getItem('hash'),
             this.total,
             detalle
