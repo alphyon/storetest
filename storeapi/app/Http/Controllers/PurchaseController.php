@@ -15,6 +15,8 @@ use App\Products;
 use App\Purchase;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 
 class PurchaseController extends ApiController
@@ -34,32 +36,38 @@ class PurchaseController extends ApiController
 
         $details = $request->details;
 
-        if($purchase->save()){
+            if($purchase->save()){
 
-            $count = count($details);
+                $count = count($details);
 
-            for($i = 0; $i < $count ;$i++){
-                $det[$i] = new Details();
-                $det[$i]->product_id = $details[$i]['product_id'];
-                $det[$i]->quantity = $details[$i]['quantity'];
-                $det[$i]->purchase_id = $purchase->id;
-                $det[$i]->save();
+                for($i = 0; $i < $count ;$i++){
+                    $det[$i] = new Details();
+                    $det[$i]->product_id = $details[$i]['product_id'];
+                    $det[$i]->quantity = $details[$i]['quantity'];
+                    $det[$i]->purchase_id = $purchase->id;
+                    $det[$i]->save();
 
-                $prodtem = Products::find($det[$i]->product_id);
-                $prodtem->quantity = $prodtem->quantity - $det[$i]->quantity;
-                $prodtem->update();
+                    $prodtem = Products::find($det[$i]->product_id);
+                    $prodtem->quantity = $prodtem->quantity - $det[$i]->quantity;
+                    $prodtem->update();
 
-            }
+                }
 
-            $registros=Cart::where('hash',$request->reference)->get();
-            foreach($registros as $registro){
-                $ids[]=$registro->id;
+                $registros=Cart::where('hash',$request->reference)->get();
+                foreach($registros as $registro){
+                    $ids[]=$registro->id;
 
-            }
-            $eliminados = Cart::destroy($ids);
+                }
 
-            return $this->showDataMessage("Compra registrada",201);
+                $this->sendMail($purchase);
+                $eliminados = Cart::destroy($ids);
+
+
+                return $this->showDataMessage("Compra registrada",201);
+
         }
+
+
     }
 
     public function show($id){
@@ -109,7 +117,7 @@ class PurchaseController extends ApiController
     }
 
     public function getPurchase($id){
-        $purchase = Purchase::find($id);
+        $purchase = Purchase::where('reference', $id)->firstOrFail();
         $details = $purchase->details;
 
 
@@ -119,6 +127,12 @@ class PurchaseController extends ApiController
         ];
 
         return $dt;
+    }
+
+    public function sendMail($data){
+        $user = User::find($data->user_id);
+        Mail::to($user->email, 'ENVIOS')->send(new SendMailController($data));
+
     }
 
 }

@@ -21,6 +21,7 @@ import {CartService} from "./service/service/cart.service";
 import { DeleteCartComponent } from './controller/delete-cart/delete-cart.component';
 import { LoginComponent } from './controller/login/login.component';
 import {LoginService} from "./service/service/login.service";
+import { PurchaseviewComponent } from './controller/purchaseview/purchaseview.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -29,6 +30,7 @@ import {LoginService} from "./service/service/login.service";
         CartComponent,
         DeleteCartComponent,
         LoginComponent,
+        PurchaseviewComponent,
     ],
     imports: [
         CommonModule,

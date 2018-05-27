@@ -27,6 +27,12 @@ $router->post(
     ]
 );
 
+$router->get(
+    'mail',
+    [
+        'uses' => 'SendMailController@sendTestMail'
+    ]
+);
 
 
 $router->group(['prefix'=>'api/v1','middleware' => 'jwt.auth'], function() use($router){
@@ -44,9 +50,13 @@ $router->group(['prefix'=>'api/v1','middleware' => 'jwt.auth'], function() use($
     $router->post('/purchase', 'PurchaseController@create');
     $router->get('/purchase/{id}', 'PurchaseController@show');
     $router->get('/purchase/detail/{id}', 'PurchaseController@showDetails');
-    $router->get('/purchase/full/{id}', 'PurchaseController@showFullPurchase');
+
     $router->post('/cart','CartController@create');
     $router->delete('/cart/{id}','CartController@delete');
     $router->put('/cart/{id}','CartController@update');
     $router->get('/cart/{hash}','CartController@show');
+});
+
+$router->group(['prefix'=>'api/v1'], function() use($router) {
+    $router->get('/purchase/full/{id}', 'PurchaseController@showFullPurchase');
 });
