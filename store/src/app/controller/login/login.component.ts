@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../../service/service/login.service";
 import {ToastsManager} from "ng2-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
     model: any = {};
   constructor(
       private login: LoginService,
-      private toast: ToastsManager
+      private toast: ToastsManager,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('fullname',res.full_name);
             localStorage.setItem('token',res.token);
             this.toast.success('Bienvenido '+ res.full_name);
+            this.router.navigate(['/products']);
         },
         (error) => {
             this.toast.error('Ocurrio un Error al loguearse');

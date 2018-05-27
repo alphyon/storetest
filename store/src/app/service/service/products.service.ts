@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs';
-import {AppConfigService} from '../app-config-service.service';
+import {AppConfigService} from "../app-config-service.service";
 
 @Injectable()
 export class ProductsService {
 
     private url: string;
     private url2: string;
+    private  tst: string;
 
   constructor(
       private http: Http,
-      private appConfigService: AppConfigService
+      private appvar: AppConfigService,
   ) {
-      this.url = 'http://localhost:8000/api/v1/products';
-      this.url2 = 'http://localhost:8000/api/v1/product';
+      this.url = appvar.config.api+'/products';
+      this.url2 = appvar.config.api+'/product';
   }
 
 

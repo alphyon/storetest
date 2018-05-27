@@ -1,3 +1,43 @@
-<p>
-  purchaseview works!
-</p>
+<br><br><br>
+
+<div class="container">
+    <h2><span class="badge cyan">Cliente: </span><span class="badge cyan">{{name}}</span></h2>
+    <h2><span class="badge cyan">Referecnia de compra: </span><span class="badge cyan">{{reference}}</span></h2>
+    <h2><span class="badge cyan">Fecha de la Compra: </span><span class="badge cyan">{{create_at |  date: 'dd/MM/yyyy'}}</span></h2>
+    <h2><span class="badge cyan">Fecha de la Compra: </span><span class="badge cyan">{{total | currency }}</span></h2>
+
+
+    <!--Table-->
+    <table class="table table-responsive-md">
+
+        <!--Table head-->
+        <thead class="amber lighten-3">
+        <tr>
+            <th class="th-sm" colspan="2">Detalle de Compra</th>
+
+        </tr>
+        <tr>
+            <th class="th-sm">Producto</th>
+            <th class="th-sm">Cantidad</th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+        <ng-template ngFor let-detalle [ngForOf]="detalles" let i = index>
+        <tr>
+
+            <td>{{detalle.name}}</td>
+            <td>{{detalle.price}}</td>
+
+        </tr>
+        </ng-template>
+        </tbody>
+        <!--Table body-->
+
+
+    </table>
+    <!--Table-->
+
+</div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
+import {AppConfigService} from "../app-config-service.service";
 
 @Injectable()
 export class LoginService {
@@ -7,8 +8,9 @@ export class LoginService {
     private headers = new Headers({ 'X-Requested-With': 'XMLHttpRequest' });
   constructor(
       private http: Http,
+      private appConf: AppConfigService
   ) {
-      this.url = 'http://localhost:8000/auth/login';
+      this.url = appConf.config.login;
   }
 
     login(email, password){

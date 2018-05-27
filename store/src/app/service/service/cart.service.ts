@@ -11,8 +11,8 @@ export class CartService {
       private http: Http,
       private appConfigService: AppConfigService
   ) {
-      this.url = 'http://localhost:8000/api/v1/cart';
-      this.url2 = 'http://localhost:8000/api/v1/purchase';
+      this.url = this.appConfigService.config.api+'/cart';
+      this.url2 = this.appConfigService.config.api+'/purchase';
   }
 
 

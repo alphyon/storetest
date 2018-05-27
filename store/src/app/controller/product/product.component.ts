@@ -68,10 +68,14 @@ restProdcut(){
         }
     }
 
+     generateHash() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+     };
+
     addToCart(){
         var hascod;
         if(localStorage.getItem('hash')==undefined){
-            hascod = window.btoa(this.product['SKU']+""+Math.random()*50);
+            hascod = this.generateHash();
             localStorage.setItem('hash',hascod);
         }else{
             hascod = localStorage.getItem('hash');

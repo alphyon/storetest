@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
   }
 
     pagar(){
-      let detalle[];
+      let detalle[]={};
         console.log(this.numItems);
       for(var i=0; i < this.numItems; i++){
 
