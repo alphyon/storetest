@@ -1,0 +1,31 @@
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <ng-template ngFor let-product [ngForOf]="products">
+
+
+            <div class="col-4">
+
+                <div class="card">
+
+                    <!--Card image-->
+                    <img class="img-fluid" src="https://picsum.photos/200/300/?ramdom" alt="Card image cap">
+
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">{{product.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text">{{product.description | slice:0:100}}</p>
+                        <h4><span class="badge black"> Precio: </span>&nbsp;{{product.price}}<i class="fa fa-money"
+                                                                                                aria-hidden="true"></i>
+                        </h4>
+                        <a class="btn btn-primary waves-light" routerLink="/product/{{product.id}}" mdbWavesEffect><i class="fa fa-shopping-cart"
+                                                                                      aria-hidden="true">Comprar</i></a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </ng-template>
+    </div>
+</div>

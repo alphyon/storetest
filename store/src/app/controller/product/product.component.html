@@ -1,0 +1,84 @@
+<br><br><br>
+<div class="container">
+<section class="section feature-box">
+
+  <!--Section heading-->
+  <h1 class="section-heading pt-4">{{product.name}}</h1>
+  <!--Section description-->
+  <p class="section-description lead grey-text">{{product.description}}</p>
+
+  <!--Grid row-->
+  <div class="row features-small pt-2">
+
+    <!--Grid column-->
+    <div class="col-lg-5 mb-r center-on-small-only">
+      <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/ipad-portfolio2.png" alt="" class="img-fluid z-depth-0">
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-7">
+      <!--Grid row-->
+      <div class="row pb-3">
+        <div class="col-2 col-md-1">
+          <i class="fa fa-money blue-text"></i>
+        </div>
+        <div class="col-10">
+          <h5 class="feature-title">SKU: </h5>
+          <p class="grey-text">{{product.SKU}}</p>
+        </div>
+      </div>
+      <!--Grid row-->
+      <!--Grid row-->
+      <div class="row pb-3">
+        <div class="col-2 col-md-1">
+          <i class="fa fa-money blue-text"></i>
+        </div>
+        <div class="col-10">
+          <h5 class="feature-title">Precio: </h5>
+          <p class="grey-text">{{product.price}}</p>
+        </div>
+      </div>
+      <!--Grid row-->
+      <!--Grid row-->
+      <div class="row pb-3">
+        <div class="col-2 col-md-1">
+          <i class="fa fa-money blue-text"></i>
+        </div>
+
+        <div class="col-10">
+          <h5 class="feature-title">Cantidad: </h5>
+            <form class="form-inline">
+            <div class="md-form form-group">
+              <a (click)="sumProdcut()">+</a>
+            </div>
+            <div class="md-form form-group">
+
+              <input mdbInputDirective type="text" class="form-control sizeinput" id="form10" name="text" [(ngModel)]="tempq" value="{{tempq}}">
+
+            </div>
+
+            <div class="md-form form-group">
+              <a (click)="restProdcut()">-</a>
+            </div>
+            </form>
+        </div>
+
+      </div>
+      <!--Grid row-->
+        <!--Grid row-->
+        <div class="row pb-3">
+
+            <div class="col-10">
+                <button (click)="addToCart()" class="btn btn-success"> Agregar al Carro </button>
+            </div>
+        </div>
+        <!--Grid row-->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+</section></div>

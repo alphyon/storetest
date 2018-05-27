@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Cart;
 use App\Details;
 use App\Products;
 use App\Purchase;
@@ -25,6 +26,7 @@ class PurchaseController extends ApiController
     }
 
     public function create(Request $request){
+
         $purchase = new Purchase();
         $purchase->reference=$request->reference;
         $purchase->user_id=$request->user_id;
@@ -49,6 +51,12 @@ class PurchaseController extends ApiController
 
             }
 
+            $registros=Cart::where('hash',$request->reference)->get();
+            foreach($registros as $registro){
+                $ids[]=$registro->id;
+
+            }
+            $eliminados = Cart::destroy($ids);
 
             return $this->showDataMessage("Compra registrada",201);
         }

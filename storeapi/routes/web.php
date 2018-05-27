@@ -14,6 +14,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->options('/{any:.*}', function () {
+    return response(['status' => 'success'])
+        ->header('Access-Control-Allow-Methods','OPTIONS, GET, POST, PUT, DELETE')
+        ->header('Access-Control-Allow-Headers', 'Authorization, Content-Type, Origin');
+});
 
 $router->group(['prefix'=>'api/v1'], function() use($router){
     $router->post('/user', 'UserController@create');
@@ -31,4 +36,8 @@ $router->group(['prefix'=>'api/v1'], function() use($router){
     $router->get('/purchase/{id}', 'PurchaseController@show');
     $router->get('/purchase/detail/{id}', 'PurchaseController@showDetails');
     $router->get('/purchase/full/{id}', 'PurchaseController@showFullPurchase');
+    $router->post('/cart','CartController@create');
+    $router->delete('/cart/{id}','CartController@delete');
+    $router->put('/cart/{id}','CartController@update');
+    $router->get('/cart/{hash}','CartController@show');
 });
