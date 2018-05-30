@@ -8,7 +8,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  product[]: any;
+  product: any[];
   total:any;
     numItems:any;
     id_user:any;
@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
   }
 
     pagar(){
-      let detalle[]={};
+      let detalle = [];
         console.log(this.numItems);
       for(var i=0; i < this.numItems; i++){
 

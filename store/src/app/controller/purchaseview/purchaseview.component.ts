@@ -9,7 +9,6 @@ import {PurchaseV} from "../../class/purcahseview";
   styleUrls: ['./purchaseview.component.scss']
 })
 export class PurchaseviewComponent implements OnInit {
-  reference: string;
   data:any;
   name:string;
     email:string;
